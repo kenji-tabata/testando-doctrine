@@ -4,6 +4,11 @@ require_once 'conexao1.php';
 
 // http://doctrine-orm.readthedocs.org/projects/doctrine-dbal/en/latest/reference/schema-representation.html
 
+/**
+ * Cria apenas o esquema das tabelas para serem adicionadas no MySQL.
+ * Não criou as tabelas automaticamente na base de dados selecionada.
+ */
+
 $schema = new \Doctrine\DBAL\Schema\Schema();
 
 echo "Criando tabela\n";
@@ -20,9 +25,8 @@ $myForeign->addForeignKeyConstraint($myTable, array("user_id"), array("id"), arr
 
 $myPlatform = $conexao->getDatabasePlatform();
 
-$queries = $schema->toSql($myPlatform); // get queries to create this schema.
+$queries = $schema->toSql($myPlatform);
 print_r($queries);
 
-$dropSchema = $schema->toDropSql($myPlatform); // get queries to safely delete this schema
-
+$dropSchema = $schema->toDropSql($myPlatform);
 print_r($dropSchema);
