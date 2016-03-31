@@ -2,6 +2,8 @@
 
 require_once 'conexao1.php';
 
+// http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html#api
+
 // Create
 $conexao->insert('pesq_main', array(
     'id_grupo'  => 0,
