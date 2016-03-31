@@ -1,3 +1,5 @@
 /nbproject/
 /dbal/
 /doctrine2/
+/db/vendor
+/orm/vendor
