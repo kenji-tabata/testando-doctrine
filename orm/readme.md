@@ -9,6 +9,12 @@ A estrutura da classe de modelo deve conter os `Annotations` do Doctrine  e os m
 @GeneratedValue: Define a coluna com auto increment
 @Column:         Define as propriedades da coluna da tabela
 
+No link abaixo contem as demais propriedades disponíveis
+
+    http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#property-mapping
+
+Exemplo do Entity:
+
     /**
      * @Entity @Table(name="produtos")
      **/
