@@ -3,9 +3,9 @@
 // http://doctrine-orm.readthedocs.org/en/latest/tutorials/getting-started.html#starting-with-the-product
 
 /**
- * @Entity @Table(name="produtos")
+ * @Entity @Table(name="products")
  **/
-class Produto {
+class Product {
 
     /**
      * @Id @Column(type="integer") @GeneratedValue
@@ -15,17 +15,17 @@ class Produto {
     /**
      *  @Column(type="string")
      **/
-    protected $nome;
+    protected $name;
 
     public function getId() {
         return $this->id;
     }
 
-    public function getNome() {
-        return $this->nome;
+    public function getName() {
+        return $this->name;
     }
 
-    public function setNome($nome) {
-        $this->nome = $nome;
+    public function setName($name) {
+        $this->name = $name;
     }
 }
