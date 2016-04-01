@@ -22,10 +22,10 @@ class Produto {
     }
 
     public function getNome() {
-        return $this->name;
+        return $this->nome;
     }
 
     public function setNome($nome) {
-        $this->name = $nome;
+        $this->nome = $nome;
     }
 }
