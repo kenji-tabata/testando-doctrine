@@ -1,6 +1,6 @@
 <?php
 
-require_once 'conexao1.php';
+require_once 'conexao2.php';
 
 // http://doctrine-orm.readthedocs.org/projects/doctrine-dbal/en/latest/reference/schema-representation.html
 
