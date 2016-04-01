@@ -7,7 +7,7 @@ require_once "vendor/autoload.php";
 
 // http://doctrine-orm.readthedocs.org/en/latest/tutorials/getting-started.html#obtaining-the-entitymanager
 
-// Cria uma configuração padrão para o Annotations do Doctrine ORM
+// Define o local da pasta padrão que contem as classes de modelos do projeto
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode);
 
