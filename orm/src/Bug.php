@@ -31,22 +31,7 @@ class Bug {
      */
     protected $status;
 
-    /**
-     * @ManyToOne(targetEntity="User", inversedBy="assignedBugs")
-     **/
-    protected $engineer;
-
-    /**
-     * @ManyToOne(targetEntity="User", inversedBy="reportedBugs")
-     **/
-    protected $reporter;
-
-    /**
-     * @ManyToMany(targetEntity="Product")
-     **/
-    protected $products;
-
-    public function getId() {
+        public function getId() {
         return $this->id;
     }
 
@@ -73,33 +58,4 @@ class Bug {
     public function getStatus() {
         return $this->status;
     }
-
-    public function assignToProduct($product)
-    {
-        $this->products[] = $product;
-    }
-
-    public function getProducts()
-    {
-        return $this->products;
-    }
-
-    public function setEngineer($engineer) {
-        $engineer->atribuirBug($this);
-        $this->engineer = $engineer;
-    }
-
-    public function setReporter($reporter) {
-        $reporter->addReportarBug($this);
-        $this->reporter = $reporter;
-    }
-
-    public function getEngineer() {
-        return $this->engineer;
-    }
-
-    public function getReporter() {
-        return $this->reporter;
-    }
-
 }
