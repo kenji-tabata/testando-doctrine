@@ -1,5 +1,7 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity @Table(name="users")
  */
@@ -17,6 +19,18 @@ class User {
      */
     protected $name;
 
+    /**
+     * @OneToMany(targetEntity="Bug", mappedBy="reporter")
+     * @var Bug[]
+     **/
+    protected $reportedBugs = null;
+
+    /**
+     * @OneToMany(targetEntity="Bug", mappedBy="engineer")
+     * @var Bug[]
+     **/
+    protected $assignedBugs = null;
+
     public function getId() {
         return $this->id;
     }
@@ -27,6 +41,14 @@ class User {
 
     public function setName($name) {
         $this->name = $name;
+    }
+
+    public function addReportedBug($bug) {
+        $this->reportedBugs[] = $bug;
+    }
+
+    public function assignedToBug($bug) {
+        $this->assignedBugs[] = $bug;
     }
 
 }
