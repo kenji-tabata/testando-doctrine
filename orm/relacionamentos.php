@@ -3,20 +3,25 @@
 date_default_timezone_set("America/Sao_Paulo");
 
 require_once 'conexao.php';
-require_once 'src/User.php';
-require_once 'src/Bug.php';
+require_once 'src/Unidirectional-Many-to-One.php';
 
-// http://doctrine-orm.readthedocs.org/en/latest/tutorials/getting-started.html#adding-bug-and-user-entities
+// doctrine-orm.readthedocs.org/projects/doctrine-orm/en/latest/reference/working-with-associations.html#establishing-associations
 
-$user = new User();
-$user->setName("Lucas Almeida");
-$entityManager->persist($user);
+// 01. Exemplo de relacionamento unidirecional Muitos-para-Um
+
+$ondeMora = new OndeMora();
+$ondeMora->setEndereco("Rua Alfredo");
+$entityManager->persist($ondeMora);
 $entityManager->flush();
-$idUser = $user->getId();
 
-$bug = new Bug();
-$bug->setDescription("Something does not work!");
-$bug->setCreated(new DateTime("now"));
-$bug->setStatus("OPEN");
+$usuario = new Usuario();
+$usuario->setNome("Carlos");
+$usuario->setOndeMora($ondeMora);
+$entityManager->persist($usuario);
+$entityManager->flush();
 
-$idBug = $bug->getId();
+$novoUsuario = $usuario->getId();
+
+$buscarUsuario = $entityManager->find('Usuario', $novoUsuario);
+var_dump($buscarUsuario->getNome());
+var_dump($buscarUsuario->getOndeMora()->getEndereco());
