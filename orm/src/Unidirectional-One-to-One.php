@@ -6,6 +6,7 @@
  * @Entity
  */
 class Produto {
+
     /**
      * @Id @GeneratedValue @Column(type="integer")
      * @var int
@@ -13,31 +14,66 @@ class Produto {
     protected $id;
 
     /**
-     * @OneToOne(targetEntity="Envio")
-     * @JoinColumn(name="envio_id", referencedColumnName="id")
+     * @Column(type="string")
+     * @var string
      */
-    private $envio;
+    protected $tipo;
 
-    public function getEnvio() {
-        return $this->envio;
+    public function getId() {
+        return $this->id;
     }
 
-    public function setEnvio($envio) {
-        $this->envio = $envio;
+    public function getTipo() {
+        return $this->tipo;
     }
+
+    public function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }
+
 }
 
 /**
  *  @Entity
  */
 class Envio {
+
     /**
      * @Id @GeneratedValue @Column(type="integer")
      * @var int
      */
     protected $id;
 
+    /**
+     * @Column(type="string")
+     * @var string
+     */
+    protected $local;
+
+    /**
+     * @OneToOne(targetEntity="Produto")
+     * @JoinColumn(name="produto_id", referencedColumnName="id")
+     */
+    private $produto;
+
     public function getId() {
         return $this->id;
     }
+
+    public function getLocal() {
+        return $this->local;
+    }
+
+    public function setLocal($local) {
+        $this->local = $local;
+    }
+
+    public function getProduto() {
+        return $this->produto;
+    }
+
+    public function setProduto($produto) {
+        $this->produto = $produto;
+    }
+
 }
