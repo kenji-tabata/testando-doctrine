@@ -3,3 +3,4 @@
 /doctrine2/
 /db/vendor
 /orm/vendor
+/orm/composer.lock
