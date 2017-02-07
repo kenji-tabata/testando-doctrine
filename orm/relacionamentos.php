@@ -2,8 +2,8 @@
 
 date_default_timezone_set("America/Sao_Paulo");
 
-require_once 'conexao.php';
-require_once 'src/Unidirectional-Many-to-One.php';
+require_once 'boostrap.php';
+require_once 'src/relacionamentos/Unidirectional-Many-to-One.php';
 
 // doctrine-orm.readthedocs.org/projects/doctrine-orm/en/latest/reference/working-with-associations.html#establishing-associations
 
@@ -28,7 +28,7 @@ var_dump($buscarUsuario->getOndeMora()->getEndereco());
 
 
 
-require_once 'src/Unidirectional-One-to-One.php';
+require_once 'src/relacionamentos/Unidirectional-One-to-One.php';
 
 // 02. Exemplo de relacionamento unidirecional Um-para-Um
 
@@ -51,6 +51,6 @@ var_dump($buscarProduto->getLocal());
 
 
 
-require_once 'src/Bidirectional-Many-to-Many.php';
+require_once 'src/relacionamentos/Bidirectional-Many-to-Many.php';
 
 // 03. Exemplo de relacionamento bidirecional Muitos-para-Muitos
